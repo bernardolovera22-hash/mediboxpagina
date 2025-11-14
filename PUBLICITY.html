@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediBox — </title>  <style>
+    :root {
+      --fondo: #eef4ff;
+      --primario: #5a6cea;
+      --secundario: #748bff;
+      --acento: #c6b8ff;
+      --texto: #1e1e2e;
+      --tarjeta: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: var(--fondo); color: var(--texto); }
+
+    /* HEADER */
+    header {
+      background: var(--primario);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      padding: .5rem 1rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      transition: .3s;
+      cursor: pointer;
+    }
+    nav a:hover { background: var(--acento); color: #000; }
+
+    section { padding: 3rem 2rem; max-width: 900px; margin: auto; display: none; }
+
+    .visible { display: block !important; }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .galeria img {
+      width: 100%; max-width: 300px;
+      border-radius: 12px;
+      margin: 1rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    iframe { width: 100%; height: 300px; border: none; border-radius: 12px; }
+
+    .precio-box {
+      background: var(--acento);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea {
+      padding: .8rem;
+      border: 2px solid var(--acento);
+      border-radius: 10px;
+    }
+    button {
+      background: var(--primario);
+      color: white;
+      border: none;
+      padding: .8rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primario);
+      color: white;
+      margin-top: 3rem;
+    }
+  </style>  <script>
+    function mostrar(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('visible'));
+      document.getElementById(id).classList.add('visible');
+    }
+
+    window.onload = () => mostrar('inicio');
+  </script></head><body>
+  <header>
+    <h2>MediBox</h2>
+    <nav>
+      <a onclick="mostrar('inicio')">Inicio</a>
+      <a onclick="mostrar('galeria')">Galería</a>
+      <a onclick="mostrar('precios')">Precios</a>
+      <a onclick="mostrar('contacto')">Contacto</a>
+      <a onclick="mostrar('mapa')">Mapa</a>
+      <a onclick="mostrar('qr')">QR</a>
+    </nav>
+  </header>  <!-- INICIO -->  <section id="inicio" class="visible">
+    <div class="tarjeta">
+      <h1>Bienvenido a MediBox</h1>
+      <p><strong>MediBox</strong> es un dispositivo automatizado diseñado para facilitar la apertura de medicamentos a personas con movilidad reducida, además de fomentar el reciclaje de envases farmacéuticos.</p>
+      <br>
+      <h3>¿Qué ofrece MediBox?</h3>
+      <ul>
+        <li>Automatización para abrir envases sin esfuerzo.</li>
+        <li>Sistema ecológico para separar tapas y envases.</li>
+        <li>Diseño compacto y accesible.</li>
+        <li>Material resistente y ligero.</li>
+      </ul>
+    </div>
+  </section>  <!-- GALERÍA -->  <section id="galeria">
+    <h1>Galería del Prototipo</h1>
+    <div class="galeria" style="text-align:center;">
+      <img src="logo.jpeg" />
+      <img src="https://via.placeholder.com/300" />
+      <img src="https://via.placeholder.com/300" />
+    </div>
+  </section>  <!-- PRECIOS -->  <section id="precios">
+    <h1>Precios</h1>
+    <div class="precio-box">Costo estimado: $3,500 – $5,000 MXN</div>
+    <p style="margin-top:1rem;">Incluye soporte técnico y asesoría inicial.</p>
+  </section>  <!-- CONTACTO -->  <section id="contacto">
+    <h1>Contacto</h1>
+    <form>
+      <input type="text" placeholder="Nombre completo">
+      <input type="email" placeholder="Correo electrónico">
+      <textarea rows="4" placeholder="Mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>  <!-- MAPA -->  <section id="mapa">
+    <h1>Mapa</h1>
+    <h1>CBT Lic. Mario Colín Sánchez, Atlacomulco</h1>
+    <iframe src="https://maps.app.goo.gl/eiSyUwP346bpSBJt9"></iframe>
+  </section>  <!-- QR -->  <section id="qr" style="text-align:center;">
+    <h1>Acceso Rápido</h1>
+    <p>Escanea para entrar a MediBox:</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://www.medibox.mx&size=180x180">
+  </section>  <footer> 2025 MediBox </footer>
+</body>
+</html>
